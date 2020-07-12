@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Container, Form, Table, InputGroup } from 'react-bootstrap';
+import { Container, Form, Table, InputGroup, Button } from 'react-bootstrap';
 
 
 
@@ -45,7 +45,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    let filteredContacts = this.state.contacts.filter(contact => contact.firstName.toLowerCase().includes(this.state.search.toLowerCase()))
+    const { contacts, search } = this.state
+    let filteredContacts = contacts.filter(contact => contact.firstName.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
     return (
       <Container fluid>
         <Form>
@@ -80,8 +81,8 @@ export default class App extends React.Component {
                 <td>{contact.birthday}</td>
                 <td>{contact.details}</td>
                 <td>
-                  <button>+</button>
-                  <button>-</button>
+                  <Button variant="primary">+</Button>
+                  <Button variant="danger">-</Button>
                 </td>
               </tr>
             ))}
