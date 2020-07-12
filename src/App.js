@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Form, Table, InputGroup } from 'react-bootstrap';
 
 
 
@@ -46,12 +47,14 @@ export default class App extends React.Component {
   render() {
     let filteredContacts = this.state.contacts.filter(contact => contact.firstName.toLowerCase().includes(this.state.search.toLowerCase()))
     return (
-      <div className="container">
-        <form className="mb-2">
-          <input name='search' value={this.state.search} onChange={this.changeHandler} />
-          <button className="btn btn-primary">Search</button>
-        </form>
-        <table>
+      <Container fluid>
+        <Form>
+          <InputGroup>
+            <input name='search' value={this.state.search} onChange={this.changeHandler} />
+            <button className="btn btn-primary">Search</button>
+          </InputGroup>
+        </Form>
+        <Table responsive hover striped>
           <thead className="thead-dark">
             <tr>
               <th>#</th>
@@ -83,8 +86,8 @@ export default class App extends React.Component {
               </tr>
             ))}
           </tbody>
-        </table>
-      </div>
+        </Table>
+      </Container>
     )
   }
 }
