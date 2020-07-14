@@ -58,7 +58,7 @@ export default class PhoneBook extends Component {
     console.log(this.state.contacts)
     return (
       <Container fluid>
-        {/* <SearchBar filter={this.filteredContactsHandler} /> */}
+        <SearchBar filter={this.filteredContactsHandler} />
         <CreateContact add={this.createContactHandler} />
         <ContactsContainer contacts={filteredContacts} remove={this.removeHandler} />
       </Container>
