@@ -16,7 +16,7 @@ export default class ContactCard extends Component {
                 <td>{contact.details}</td>
                 <td>
                     <Button variant="primary">Edit</Button>
-                    <Button variant="danger">Remove</Button>
+                    <Button variant="danger" onClick={() => this.props.remove(contact.id)}>Remove</Button>
                 </td>
             </tr>
         )

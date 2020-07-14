@@ -41,13 +41,17 @@ export default class PhoneBook extends Component {
     this.setState({ search: e.target.value })
   }
 
+  removeHandler = (id) => {
+    this.setState({ contacts: this.state.contacts.filter(contact => contact.id !== id)})
+  }
+
 
   render() {
     let filteredContacts = this.state.contacts.filter(contact => contact.firstName.toLowerCase().includes(this.state.search.toLowerCase()) || contact.phone.toString().includes(this.state.search))
     return (
       <Container fluid>
         <SearchBar filter={this.filteredContactsHandler} />
-        <ContactsContainer contacts={filteredContacts} />
+        <ContactsContainer contacts={filteredContacts} remove={this.removeHandler}/>
       </Container>
     )
   }
