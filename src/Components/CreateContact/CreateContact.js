@@ -61,7 +61,7 @@ export default class CreateContact extends Component {
                     </Row>
                 </Form.Group>
                 <Row>
-                    <Col>
+                    <Col className="offset-5">
                         <Button variant="warning" onClick={this.clearButtonHandler}>Clear</Button>
                         <Button variant="primary" type="submit" onClick={this.submitHandler}>Add</Button>
                     </Col>

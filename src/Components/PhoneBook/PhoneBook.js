@@ -57,7 +57,7 @@ export default class PhoneBook extends Component {
     let filteredContacts = this.state.contacts.filter(contact => contact.firstName.toLowerCase().includes(this.state.search.toLowerCase()) || contact.phone.toString().includes(this.state.search))
     console.log(this.state.contacts)
     return (
-      <Container fluid>
+      <Container fluid={"md"} className="my-4">
         <SearchBar filter={this.filteredContactsHandler} />
         <CreateContact add={this.createContactHandler} />
         <ContactsContainer contacts={filteredContacts} remove={this.removeHandler} />

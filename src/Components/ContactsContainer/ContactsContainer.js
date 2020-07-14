@@ -6,7 +6,7 @@ export default class ContactsContainer extends Component {
     render() {
         const { contacts } = this.props
         return (
-            <Table responsive hover striped>
+            <Table responsive hover striped className="my-2">
                 <thead className="thead-dark">
                     <tr>
                         <th>#</th>
