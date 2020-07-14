@@ -10,7 +10,7 @@ export default class ContactCard extends Component {
                 <td>{contact.firstName}</td>
                 <td>{contact.lastName}</td>
                 <td>{contact.phone}</td>
-                <td>{contact.Email}</td>
+                <td>{contact.email}</td>
                 <td>{contact.address}</td>
                 <td>{contact.birthday}</td>
                 <td>{contact.details}</td>

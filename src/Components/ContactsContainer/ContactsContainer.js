@@ -22,7 +22,7 @@ export default class ContactsContainer extends Component {
                 </thead>
                 <tbody>
                     {contacts.map(contact => (
-                        <ContactCard contact={contact} key={contact.id} remove={this.props.remove}/>
+                        <ContactCard contact={contact} key={contact.id} remove={this.props.remove} />
                     ))}
                 </tbody>
             </Table>
