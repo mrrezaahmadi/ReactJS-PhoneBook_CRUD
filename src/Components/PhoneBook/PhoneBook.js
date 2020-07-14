@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Container } from 'react-bootstrap'
 import SearchBar from '../SearchBar/SearchBar'
+import ContactsContainer from '../ContactsContainer/ContactsContainer'
+
 
 export default class PhoneBook extends Component {
   state = {
@@ -31,16 +33,22 @@ export default class PhoneBook extends Component {
       address: 'somewhere',
       birthday: '01/01/1111',
       details: 'something to fill the blank'
-    }]
+    }], 
+    search: ''
   }
 
+  filteredContactsHandler = (e) => {
+    this.setState({ search: e.target.value })
+  }
+
+
   render() {
+    let filteredContacts = this.state.contacts.filter(contact => contact.firstName.toLowerCase().includes(this.state.search.toLowerCase()) || contact.phone.toString().includes(this.state.search))
     return (
-      <div>
-        <Container fluid>
-          <SearchBar contacts={this.state.contacts}/>
-        </Container>
-      </div>
+      <Container fluid>
+        <SearchBar filter={this.filteredContactsHandler} />
+        <ContactsContainer contacts={filteredContacts} />
+      </Container>
     )
   }
 }
