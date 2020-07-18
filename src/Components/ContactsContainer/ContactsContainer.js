@@ -4,7 +4,9 @@ import ContactCard from '../ContactCard/ContactCard'
 
 
 function ContactsContainer(props) {
-    const { contacts, remove } = props
+    const { contacts, remove, editContactHandler } = props
+
+
     return (
         <Table responsive hover striped className="my-2">
             <thead className="thead-dark">
@@ -22,7 +24,7 @@ function ContactsContainer(props) {
             </thead>
             <tbody>
                 {contacts.map(contact => (
-                    <ContactCard contact={contact} key={contact.id} remove={remove} />
+                    <ContactCard contact={contact} key={contact.id} remove={remove} editContactHandler={editContactHandler} />
                 ))}
             </tbody>
         </Table>

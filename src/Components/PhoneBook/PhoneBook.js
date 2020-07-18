@@ -50,12 +50,29 @@ function PhoneBook() {
       setContacts([...contacts, newContact])
     }
   }
+
+  const editContactHandler = (event, prevContact) => {
+    let copyContacts = [...contacts]
+    const { target: { name, value } } = event
+    let editedContact = { ...prevContact, [name]: value }
+
+    copyContacts.find(contact => contact.id === prevContact.id).firstName = editedContact.firstName
+    copyContacts.find(contact => contact.id === prevContact.id).lastName = editedContact.lastName
+    copyContacts.find(contact => contact.id === prevContact.id).phone = editedContact.phone
+    copyContacts.find(contact => contact.id === prevContact.id).email = editedContact.email
+    copyContacts.find(contact => contact.id === prevContact.id).address = editedContact.address
+    copyContacts.find(contact => contact.id === prevContact.id).birthday = editedContact.birthday
+    copyContacts.find(contact => contact.id === prevContact.id).details = editedContact.details
+    
+    setContacts(copyContacts)
+  }
+
   let filteredContacts = contacts.filter(contact => contact.firstName.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
   return (
     <Container fluid={"md"} className="my-4">
       <SearchBar filter={filteredContactsHandler} />
       <CreateContact add={createContactHandler} />
-      <ContactsContainer contacts={filteredContacts} remove={removeHandler} />
+      <ContactsContainer contacts={filteredContacts} remove={removeHandler} editContactHandler={editContactHandler} />
     </Container>
   )
 }
