@@ -56,7 +56,6 @@ function PhoneBook() {
     const { target: { name, value } } = event
     let editedContact = { ...prevContact, [name]: value }
 
-    console.log("hello world")
     copyContacts.find(contact => contact.id === prevContact.id).firstName = editedContact.firstName
     copyContacts.find(contact => contact.id === prevContact.id).lastName = editedContact.lastName
     copyContacts.find(contact => contact.id === prevContact.id).phone = editedContact.phone
