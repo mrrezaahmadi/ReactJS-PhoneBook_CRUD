@@ -52,18 +52,12 @@ function PhoneBook() {
   }
 
   const editContactHandler = (event, prevContact) => {
-    let copyContacts = [...contacts]
+    const copyContacts = [...contacts]
     const { target: { name, value } } = event
-    let editedContact = { ...prevContact, [name]: value }
+    const editedContact = { ...prevContact, [name]: value }
+    const nextContact = copyContacts.find(contact => contact.id === prevContact.id)
+    Object.keys(nextContact).forEach(contactKey => nextContact[`${contactKey}`] = editedContact[`${contactKey}`])
 
-    copyContacts.find(contact => contact.id === prevContact.id).firstName = editedContact.firstName
-    copyContacts.find(contact => contact.id === prevContact.id).lastName = editedContact.lastName
-    copyContacts.find(contact => contact.id === prevContact.id).phone = editedContact.phone
-    copyContacts.find(contact => contact.id === prevContact.id).email = editedContact.email
-    copyContacts.find(contact => contact.id === prevContact.id).address = editedContact.address
-    copyContacts.find(contact => contact.id === prevContact.id).birthday = editedContact.birthday
-    copyContacts.find(contact => contact.id === prevContact.id).details = editedContact.details
-    
     setContacts(copyContacts)
   }
 
