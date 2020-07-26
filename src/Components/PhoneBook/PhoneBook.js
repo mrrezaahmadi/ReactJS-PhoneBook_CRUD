@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap'
 import SearchBar from '../SearchBar/SearchBar'
 import ContactsContainer from '../ContactsContainer/ContactsContainer'
 import CreateContact from '../CreateContact/CreateContact'
+import ContactDetails from '../ContactDetails/ContactDetails'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 function PhoneBook() {
   const [contacts, setContacts] = useState([{
@@ -45,6 +47,7 @@ function PhoneBook() {
     setContacts(contacts.filter(contact => contact.id !== id))
   }
 
+
   const createContactHandler = (newContact) => {
     if (newContact.firstName) {
       setContacts([...contacts, newContact])
@@ -61,12 +64,37 @@ function PhoneBook() {
     setContacts(copyContacts)
   }
 
+
   let filteredContacts = contacts.filter(contact => contact.firstName.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
   return (
     <Container fluid={"md"} className="my-4">
-      <SearchBar filter={filteredContactsHandler} />
-      <CreateContact add={createContactHandler} />
-      <ContactsContainer contacts={filteredContacts} remove={removeHandler} editContactHandler={editContactHandler} />
+      <Router>
+        <Switch>
+          <Route path={`/contact/:id`} >
+            <Link to="/">home</Link>
+            <ContactDetails contacts={contacts} remove={removeHandler} editContactHandler={editContactHandler} />
+          </Route>
+          <Route exact path={'/add'}>
+            <nav>
+              <ul>
+                <li><Link to='/'>Home</Link></li>
+              </ul>
+            </nav>
+            <CreateContact add={createContactHandler} />
+          </Route>
+          <Route path={`/`}>
+            <nav>
+              <ul>
+                <li><Link to='/'>Home</Link></li>
+                <li><Link to='/add'>Add</Link></li>
+              </ul>
+            </nav>
+            <SearchBar filter={filteredContactsHandler} />
+            <ContactsContainer contacts={filteredContacts} />
+          </Route>
+
+        </Switch>
+      </Router>
     </Container>
   )
 }

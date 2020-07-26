@@ -4,7 +4,7 @@ import ContactCard from '../ContactCard/ContactCard'
 
 
 function ContactsContainer(props) {
-    const { contacts, remove, editContactHandler } = props
+    const { contacts } = props
 
 
     return (
@@ -23,9 +23,9 @@ function ContactsContainer(props) {
                 </tr>
             </thead>
             <tbody>
-                {contacts.map(contact => (
-                    <ContactCard contact={contact} key={contact.id} remove={remove} editContactHandler={editContactHandler} />
-                ))}
+                    {contacts.map(contact => (
+                            <ContactCard contact={contact} key={contact.id} />
+                    ))}
             </tbody>
         </Table>
     )
