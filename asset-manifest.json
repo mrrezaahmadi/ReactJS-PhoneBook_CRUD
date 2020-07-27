@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/ReactJS-PhoneBook_CRUD/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/ReactJS-PhoneBook_CRUD/static/js/main.540f83ea.chunk.js",
-    "main.js.map": "/ReactJS-PhoneBook_CRUD/static/js/main.540f83ea.chunk.js.map",
+    "main.css": "/ReactJS-PhoneBook_CRUD/static/css/main.82cda758.chunk.css",
+    "main.js": "/ReactJS-PhoneBook_CRUD/static/js/main.59d2021c.chunk.js",
+    "main.js.map": "/ReactJS-PhoneBook_CRUD/static/js/main.59d2021c.chunk.js.map",
     "runtime-main.js": "/ReactJS-PhoneBook_CRUD/static/js/runtime-main.b6f4466a.js",
     "runtime-main.js.map": "/ReactJS-PhoneBook_CRUD/static/js/runtime-main.b6f4466a.js.map",
     "static/css/2.af3c1da9.chunk.css": "/ReactJS-PhoneBook_CRUD/static/css/2.af3c1da9.chunk.css",
-    "static/js/2.8b65e9d6.chunk.js": "/ReactJS-PhoneBook_CRUD/static/js/2.8b65e9d6.chunk.js",
-    "static/js/2.8b65e9d6.chunk.js.map": "/ReactJS-PhoneBook_CRUD/static/js/2.8b65e9d6.chunk.js.map",
+    "static/js/2.82d35647.chunk.js": "/ReactJS-PhoneBook_CRUD/static/js/2.82d35647.chunk.js",
+    "static/js/2.82d35647.chunk.js.map": "/ReactJS-PhoneBook_CRUD/static/js/2.82d35647.chunk.js.map",
     "index.html": "/ReactJS-PhoneBook_CRUD/index.html",
-    "precache-manifest.224510133d69348301f9e1c86d33264e.js": "/ReactJS-PhoneBook_CRUD/precache-manifest.224510133d69348301f9e1c86d33264e.js",
+    "precache-manifest.899b6109aa0c4bd3bb7c220098ae84ae.js": "/ReactJS-PhoneBook_CRUD/precache-manifest.899b6109aa0c4bd3bb7c220098ae84ae.js",
     "service-worker.js": "/ReactJS-PhoneBook_CRUD/service-worker.js",
     "static/css/2.af3c1da9.chunk.css.map": "/ReactJS-PhoneBook_CRUD/static/css/2.af3c1da9.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/ReactJS-PhoneBook_CRUD/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.8b65e9d6.chunk.js.LICENSE.txt": "/ReactJS-PhoneBook_CRUD/static/js/2.8b65e9d6.chunk.js.LICENSE.txt"
+    "static/css/main.82cda758.chunk.css.map": "/ReactJS-PhoneBook_CRUD/static/css/main.82cda758.chunk.css.map",
+    "static/js/2.82d35647.chunk.js.LICENSE.txt": "/ReactJS-PhoneBook_CRUD/static/js/2.82d35647.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b6f4466a.js",
     "static/css/2.af3c1da9.chunk.css",
-    "static/js/2.8b65e9d6.chunk.js",
-    "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.540f83ea.chunk.js"
+    "static/js/2.82d35647.chunk.js",
+    "static/css/main.82cda758.chunk.css",
+    "static/js/main.59d2021c.chunk.js"
   ]
 }
