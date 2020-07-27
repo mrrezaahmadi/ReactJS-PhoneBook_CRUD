@@ -1,6 +1,6 @@
 import React from 'react'
-import { Table } from 'react-bootstrap'
 import ContactCard from '../ContactCard/ContactCard'
+import './ContactsContainer.scss'
 
 
 function ContactsContainer(props) {
@@ -8,26 +8,30 @@ function ContactsContainer(props) {
 
 
     return (
-        <Table responsive hover striped className="my-2">
-            <thead className="thead-dark">
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Last Name</th>
-                    <th>Phone No.</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Birthday</th>
-                    <th>Details</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                    {contacts.map(contact => (
-                            <ContactCard contact={contact} key={contact.id} />
-                    ))}
-            </tbody>
-        </Table>
+        <div className='ContactsContainer'>
+            <div className="table-header">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recents</th>
+                            <th>Favorites</th>
+                            <th>Missed</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div className="table-body">
+                <table>
+                    <tbody>
+                        {contacts.map(contact => (
+                            <tr>
+                                <ContactCard contact={contact} key={contact.id} />
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     )
 }
 

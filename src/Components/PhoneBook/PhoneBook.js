@@ -9,31 +9,25 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 function PhoneBook() {
   const [contacts, setContacts] = useState([{
     id: 1,
-    firstName: 'Mohammad Reza',
-    lastName: 'Ahmadi',
+    name: 'Ed Boon',
     phone: 98912123456,
-    email: 'somename@gmail.com',
-    address: 'somewhere',
-    birthday: '01/01/1111',
-    details: 'something to fill the blank'
+    email: 'noobde@gmail.com',
+    address: 'Los Angles, CA',
+    details: 'get over here!'
   }, {
     id: 2,
-    firstName: 'Alejandro',
-    lastName: 'Gonzales',
+    name: 'Alejandro Gonzales Inarrito',
     phone: 98912123467,
-    email: 'somename@gmail.com',
-    address: 'somewhere',
-    birthday: '01/01/1111',
-    details: 'something to fill the blank'
+    email: 'AlejandroGInarrito@gmail.com',
+    address: 'Mexico city, Mexico',
+    details: 'Working on my new title, not the revenant'
   }, {
     id: 3,
-    firstName: 'Jorgen',
-    lastName: 'Klopp',
+    name: 'Jorgen Klopp',
     phone: 98912123467,
-    email: 'somename@gmail.com',
-    address: 'somewhere',
-    birthday: '01/01/1111',
-    details: 'something to fill the blank'
+    email: 'JorgenKlopp@gmail.com',
+    address: 'Liverpool, England',
+    details: "I'm coach of Liverpool FC"
   }])
 
 
@@ -65,13 +59,12 @@ function PhoneBook() {
   }
 
 
-  let filteredContacts = contacts.filter(contact => contact.firstName.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
+  let filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
   return (
-    <Container fluid={"md"} className="my-4">
+    <Container style={{'height': '100vh'}}>
       <Router>
         <Switch>
           <Route path={`/contact/:id`} >
-            <Link to="/">home</Link>
             <ContactDetails contacts={contacts} remove={removeHandler} editContactHandler={editContactHandler} />
           </Route>
           <Route exact path={'/add'}>
