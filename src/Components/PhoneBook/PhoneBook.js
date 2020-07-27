@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Container } from 'react-bootstrap'
 import ContactsContainer from '../ContactsContainer/ContactsContainer'
 import CreateContact from '../CreateContact/CreateContact'
 import ContactDetails from '../ContactDetails/ContactDetails'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function PhoneBook() {
   const [contacts, setContacts] = useState([{
