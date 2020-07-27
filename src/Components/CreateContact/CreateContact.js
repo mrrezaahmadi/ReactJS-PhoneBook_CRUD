@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import './CreateContact.scss'
+import { Link } from 'react-router-dom'
+import { faChevronLeft, faCheck, faBroom } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 function CreateContact(props) {
     const { add } = props
     const [contact, setContact] = useState({
         id: '',
-        firstName: '',
-        lastName: '',
+        name: '',
         phone: '',
         email: '',
         address: '',
-        birthday: '',
         details: ''
     })
 
@@ -25,47 +27,36 @@ function CreateContact(props) {
     }
 
     const clearButtonHandler = () => {
-        setContact({ id: '', firstName: '', lastName: '', phone: '', email: '', address: '', birthday: '', details: '' })
+        setContact({ id: '', name: '', phone: '', email: '', address: '', details: '' })
     }
 
-    const { id, firstName, lastName, phone, email, address, birthday, details } = contact
+    const { id, name, phone, email, address, details } = contact
     return (
-
-        <Form onSubmit={submitHandler}>
-
-            <Form.Group>
-                <Row>
-                    <Col>
-                        <Form.Control type="number" value={id} onChange={changeHandler} name="id" placeholder="ID" />
-                    </Col>
-                    <Col>
-                        <Form.Control type="text" value={firstName} onChange={changeHandler} name="firstName" placeholder="First Name" />
-                    </Col>
-                    <Col>
-                        <Form.Control type="text" value={lastName} onChange={changeHandler} name="lastName" placeholder="Last Name" />
-                    </Col>
-                </Row>
-            </Form.Group>
-            <Form.Group>
-                <Row>
-                    <Col><Form.Control type="email" value={email} onChange={changeHandler} name="email" placeholder="Email" /></Col>
-                    <Col><Form.Control type="tel" value={phone} onChange={changeHandler} name="phone" placeholder="Phone No." /></Col>
-                    <Col><Form.Control type="text" value={address} onChange={changeHandler} name="address" placeholder="Address ..." /></Col>
-                    <Col><Form.Control type="date" value={birthday} onChange={changeHandler} /></Col>
-                </Row>
-            </Form.Group>
-            <Form.Group>
-                <Row>
-                    <Col><Form.Control type="text" value={details} onChange={changeHandler} name="details" placeholder="details" /></Col>
-                </Row>
-            </Form.Group>
-            <Row>
-                <Col className="offset-5">
-                    <Button variant="warning" onClick={clearButtonHandler}>Clear</Button>
-                    <Button variant="primary" type="submit" onClick={submitHandler}>Add</Button>
-                </Col>
-            </Row>
-        </Form>
+        <div class="CreateContact">
+            <div className="CreateContact-navbar">
+                <div className="navbar-btn">
+                    <Link to="/">
+                        <button><FontAwesomeIcon icon={faChevronLeft} /></button>
+                    </Link>
+                </div>
+                <div className="navbar-title">Add Contact</div>
+                <div></div>
+            </div>
+            <div className="CreateContact-header">
+                <button className="btn clear-btn" onClick={clearButtonHandler}><FontAwesomeIcon icon={faBroom} /></button>
+                <button className="btn add-btn" type="submit" onClick={submitHandler}><FontAwesomeIcon icon={faCheck} /></button>
+            </div>
+            <div className="CreateContact-form">
+                <div className="form-inputs">
+                    <input type="number" value={id} onChange={changeHandler} name="id" placeholder="ID" />
+                    <input type="text" value={name} onChange={changeHandler} name="name" placeholder="Name" />
+                    <input type="email" value={email} onChange={changeHandler} name="email" placeholder="Email" />
+                    <input type="tel" value={phone} onChange={changeHandler} name="phone" placeholder="Phone No." />
+                    <input type="text" value={address} onChange={changeHandler} name="address" placeholder="Address ..." />
+                    <input type="text" value={details} onChange={changeHandler} name="details" placeholder="details" />
+                </div>
+            </div>
+        </div>
     )
 }
 

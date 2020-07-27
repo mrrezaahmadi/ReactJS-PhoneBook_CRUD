@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import SearchBar from '../SearchBar/SearchBar'
 import ContactsContainer from '../ContactsContainer/ContactsContainer'
 import CreateContact from '../CreateContact/CreateContact'
 import ContactDetails from '../ContactDetails/ContactDetails'
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 function PhoneBook() {
   const [contacts, setContacts] = useState([{
@@ -28,7 +27,16 @@ function PhoneBook() {
     email: 'JorgenKlopp@gmail.com',
     address: 'Liverpool, England',
     details: "I'm coach of Liverpool FC"
-  }])
+  }, {
+
+    id: 4,
+    name: 'Hanz Zimmer',
+    phone: 98912123467,
+    email: 'hansimmer@gmail.com',
+    address: 'Berlin, Germany',
+    details: "Batman OST is my work"
+  }
+  ])
 
 
   const [search, setSearch] = useState('')
@@ -43,7 +51,7 @@ function PhoneBook() {
 
 
   const createContactHandler = (newContact) => {
-    if (newContact.firstName) {
+    if (newContact.name) {
       setContacts([...contacts, newContact])
     }
   }
@@ -61,27 +69,21 @@ function PhoneBook() {
 
   let filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
   return (
-    <Container style={{'height': '100vh'}}>
+    <container>
       <Router>
         <Switch>
           <Route path={`/contact/:id`} >
             <ContactDetails contacts={contacts} remove={removeHandler} editContactHandler={editContactHandler} />
           </Route>
           <Route exact path={'/add'}>
-            <nav>
-              <ul>
-                <li><Link to='/'>Home</Link></li>
-              </ul>
-            </nav>
             <CreateContact add={createContactHandler} />
           </Route>
           <Route path={`/`}>
             <ContactsContainer filter={filteredContactsHandler} contacts={filteredContacts} />
           </Route>
-
         </Switch>
       </Router>
-    </Container>
+    </container>
   )
 }
 
