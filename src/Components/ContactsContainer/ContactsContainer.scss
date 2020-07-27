@@ -1,31 +1,77 @@
+$primaryColor: #252b32;
+$tableHeaderColor: #191e22;
+
 .ContactsContainer {
 	width: 100%;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $primaryColor;
+	.ContactsContainer-navbar {
+		margin-top: 20px;
+		height: 40px;
+		width: 90%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 30px;
+		.navbar-photo {
+			img {
+				width: 35px;
+				height: 35px;
+				border: none;
+				border-radius: 12px;
+			}
+		}
+		.navbar-title {
+			margin-top: -5px;
+			color: white;
+			font-size: 26px;
+			font-weight: 500;
+		}
+		.navbar-btn {
+			button {
+				background-color: yellow;
+				width: 35px;
+				height: 35px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 18px;
+				border: none;
+				border-radius: 12px;
+			}
+		}
+	}
 	.table-header {
-        width: 100%;
-        border-top-right-radius: 25px;
-        border-top-left-radius: 25px;
-        background-color: red;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+		width: 100%;
+		border-top-right-radius: 25px;
+		border-top-left-radius: 25px;
+		background-color: $tableHeaderColor;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
 		position: relative;
-        z-index: 2;
+		z-index: 2;
+		top: 20px;
 		padding: 10px;
-        height: 80px;
+		height: 100px;
 		table {
-            width: 90%;
+			width: 90%;
 			thead {
-                background-color: green;
-                tr {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                }
+				// background-color: green;
+				tr {
+					margin-top: -10px;
+					width: 100%;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+				}
 				th {
-                    // background-color: #1a1f24;
-                    border: 1px white solid;
+					// background-color: #1a1f24;
+					// border: 1px white solid;
 					color: white;
 					font-weight: 300;
 					text-align: center;
@@ -37,24 +83,27 @@
 		display: flex;
 		justify-content: center;
 		position: relative;
+		overflow-y: scroll;
 		z-index: 3;
-		top: -20px;
+		// top: -20px;
 		width: 100%;
-		background-color: #252b32;
+		background-color: $primaryColor;
+		height: 80vh;
 		padding: 10px;
 		border-top-right-radius: 25px;
 		border-top-left-radius: 25px;
 		table {
-            width: 90%;
+			width: 90%;
 			tbody {
-                background-color: red;
-                tr {
-                    background-color: blue;
-                    border: 1px white solid;
-                }
-                td {
-                    height: 80px;
-                }
+				// background-color: blue;
+				tr {
+					border-bottom: rgba(255, 255, 255, 0.288);
+				}
+				td {
+					padding: 20px 0;
+					height: 80px;
+					border-bottom: 1px rgba(255, 255, 255, 0.479) solid;
+				}
 			}
 		}
 	}

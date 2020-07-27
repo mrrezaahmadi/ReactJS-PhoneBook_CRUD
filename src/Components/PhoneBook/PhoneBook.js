@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar'
 import ContactsContainer from '../ContactsContainer/ContactsContainer'
 import CreateContact from '../CreateContact/CreateContact'
 import ContactDetails from '../ContactDetails/ContactDetails'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 function PhoneBook() {
   const [contacts, setContacts] = useState([{
@@ -76,14 +76,7 @@ function PhoneBook() {
             <CreateContact add={createContactHandler} />
           </Route>
           <Route path={`/`}>
-            <nav>
-              <ul>
-                <li><Link to='/'>Home</Link></li>
-                <li><Link to='/add'>Add</Link></li>
-              </ul>
-            </nav>
-            <SearchBar filter={filteredContactsHandler} />
-            <ContactsContainer contacts={filteredContacts} />
+            <ContactsContainer filter={filteredContactsHandler} contacts={filteredContacts} />
           </Route>
 
         </Switch>
