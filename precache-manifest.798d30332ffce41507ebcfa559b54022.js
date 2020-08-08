@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0bf978d1f8acad8016fe916dc2f41a71",
+    "revision": "76f74bc47b12c2eeea8d7bcaa831f1da",
     "url": "/ReactJS-PhoneBook_CRUD/index.html"
   },
   {
-    "revision": "53b112a40ea2dc508837",
+    "revision": "03b8fb4a727be33ec7ab",
     "url": "/ReactJS-PhoneBook_CRUD/static/css/2.af3c1da9.chunk.css"
   },
   {
-    "revision": "c665c4a193b7c8bfcb98",
+    "revision": "a46adc4323bc4d2e1956",
     "url": "/ReactJS-PhoneBook_CRUD/static/css/main.82cda758.chunk.css"
   },
   {
-    "revision": "53b112a40ea2dc508837",
-    "url": "/ReactJS-PhoneBook_CRUD/static/js/2.82d35647.chunk.js"
+    "revision": "03b8fb4a727be33ec7ab",
+    "url": "/ReactJS-PhoneBook_CRUD/static/js/2.e3383504.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/ReactJS-PhoneBook_CRUD/static/js/2.82d35647.chunk.js.LICENSE.txt"
+    "url": "/ReactJS-PhoneBook_CRUD/static/js/2.e3383504.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c665c4a193b7c8bfcb98",
-    "url": "/ReactJS-PhoneBook_CRUD/static/js/main.59d2021c.chunk.js"
+    "revision": "a46adc4323bc4d2e1956",
+    "url": "/ReactJS-PhoneBook_CRUD/static/js/main.e3484e47.chunk.js"
   },
   {
     "revision": "cee0eb3cbbd8e03315f4",
