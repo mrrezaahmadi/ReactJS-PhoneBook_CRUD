@@ -12,7 +12,7 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
     const history = useHistory()
     const { id } = useParams()
     const [editMode, setEditMode] = useState(0)
-    const contact = contacts.find(contact => contact.id === +id)
+    const contact = contacts.find(contact => +contact.id === +id)
 
     const removeHanlder = (id) => {
         deleteContact(id)
