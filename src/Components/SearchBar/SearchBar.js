@@ -1,14 +1,15 @@
 import React from 'react'
 import './SearchBar.scss'
+import { setSearch } from '../../redux/contacts/contacts.actions'
+import { connect } from 'react-redux'
 
 
-
-function SearchBar(props) {
+function SearchBar({setSearch}) {
     return (
         <div className="SearchBar">
-            <input onChange={e => props.filter(e)} placeholder="Search the contact ... " />
+            <input onChange={e => setSearch(e.target.value)} placeholder="Search the contact ... " />
         </div>
     )
 }
 
-export default SearchBar
+export default connect(null, { setSearch })(SearchBar)

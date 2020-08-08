@@ -2,13 +2,25 @@ import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faCommentDots, faPhoneAlt, faVideo, faEnvelope, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
+import { connect } from 'react-redux'
+
+import { deleteContact, updateContact } from '../../redux/contacts/contacts.actions'
 import './ContactDetails.scss'
 
-function ContactDetails(props) {
+function ContactDetails({ contacts, deleteContact, updateContact }) {
     const { id } = useParams()
-    const { contacts, remove, editContactHandler } = props
     const [editMode, setEditMode] = useState(0)
     const contact = contacts.find(contact => contact.id === +id)
+
+    const editContactHandler = (event, prevContact) => {
+        const copyContacts = [...contacts]
+        const { target: { name, value } } = event
+        const editedContact = { ...prevContact, [name]: value }
+        const nextContact = copyContacts.find(contact => contact.id === prevContact.id)
+        Object.keys(nextContact).forEach(contactKey => nextContact[`${contactKey}`] = editedContact[`${contactKey}`])
+
+        updateContact(copyContacts)
+    }
 
     return (
         <div className="ContactDetails">
@@ -58,9 +70,6 @@ function ContactDetails(props) {
                     <tbody>
                         {editMode === contact.id ?
                             <>
-                                {/* <td>{contact.id}</td> */}
-                                {/* <tr><input name="firstName" value={contact.firstName} onChange={(e) => editContactHandler(e, contact)} /></tr> */}
-                                {/* <tr><input name="lastName" value={contact.lastName} onChange={(e) => editContactHandler(e, contact)} /></tr> */}
                                 <tr>
                                     <div className='tr-info'>
                                         <div className="tr-title">Mobile</div>
@@ -96,15 +105,12 @@ function ContactDetails(props) {
                                     <div className="tr-icon"></div>
                                 </tr>
                                 <tr>
-                                    <button className="btn btn-remove" onClick={() => remove(contact.id)}>Remove</button>
+                                    <button className="btn btn-remove" onClick={() => deleteContact(contact.id)}>Remove</button>
                                 </tr>
 
                             </>
                             :
                             <>
-                                {/* <tr>{contact.id}</tr> */}
-                                {/* <tr>{contact.firstName}</tr> */}
-                                {/* <tr>{contact.lastName}</tr> */}
                                 <tr>
                                     <div className="tr-info">
                                         <div className="tr-title">Mobile</div>
@@ -148,4 +154,10 @@ function ContactDetails(props) {
     )
 }
 
-export default ContactDetails
+const mapStateToProps = state => {
+    return {
+        contacts: state.contacts.contacts
+    }
+}
+
+export default connect(mapStateToProps, { deleteContact, updateContact })(ContactDetails)

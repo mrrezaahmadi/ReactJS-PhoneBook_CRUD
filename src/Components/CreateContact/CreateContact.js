@@ -3,10 +3,11 @@ import './CreateContact.scss'
 import { Link } from 'react-router-dom'
 import { faChevronLeft, faCheck, faBroom } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { connect } from 'react-redux'
+import { addContact } from '../../redux/contacts/contacts.actions'
 
 
-function CreateContact(props) {
-    const { add } = props
+function CreateContact({ addContact }) {
     const [contact, setContact] = useState({
         id: '',
         name: '',
@@ -16,6 +17,12 @@ function CreateContact(props) {
         details: ''
     })
 
+    const createContactHandler = (newContact) => {
+        if (newContact.name) {
+            addContact(newContact)
+        }
+    }
+
     const changeHandler = (e) => {
         let { target: { name, value } } = e
         setContact({ ...contact, [name]: value })
@@ -23,7 +30,7 @@ function CreateContact(props) {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        add({ ...contact })
+        createContactHandler({ ...contact })
     }
 
     const clearButtonHandler = () => {
@@ -60,4 +67,6 @@ function CreateContact(props) {
     )
 }
 
-export default CreateContact
+
+
+export default connect(null, { addContact })(CreateContact)
