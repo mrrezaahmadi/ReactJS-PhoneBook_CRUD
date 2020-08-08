@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CreateContact.scss'
-import { BrowserRouter as Router, Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { faChevronLeft, faCheck, faBroom } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { connect } from 'react-redux'
