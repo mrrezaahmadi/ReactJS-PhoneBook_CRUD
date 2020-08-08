@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './CreateContact.scss'
-import { Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link, Redirect, useHistory } from 'react-router-dom'
 import { faChevronLeft, faCheck, faBroom } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { connect } from 'react-redux'
@@ -8,6 +8,8 @@ import { addContact } from '../../redux/contacts/contacts.actions'
 
 
 function CreateContact({ addContact }) {
+
+    const history = useHistory()
     const [contact, setContact] = useState({
         id: '',
         name: '',
@@ -30,7 +32,8 @@ function CreateContact({ addContact }) {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        createContactHandler({ ...contact })
+        createContactHandler({ ...contact });
+        history.push('/')
     }
 
     const clearButtonHandler = () => {

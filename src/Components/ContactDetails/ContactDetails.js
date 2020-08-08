@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPen, faCommentDots, faPhoneAlt, faVideo, faEnvelope, faChevronLeft, faCheck } from '@fortawesome/free-solid-svg-icons'
 import { connect } from 'react-redux'
@@ -8,9 +8,16 @@ import { deleteContact, updateContact } from '../../redux/contacts/contacts.acti
 import './ContactDetails.scss'
 
 function ContactDetails({ contacts, deleteContact, updateContact }) {
+
+    const history = useHistory()
     const { id } = useParams()
     const [editMode, setEditMode] = useState(0)
     const contact = contacts.find(contact => contact.id === +id)
+
+    const removeHanlder = (id) => {
+        deleteContact(id)
+        history.push('/')
+    }
 
     const editContactHandler = (event, prevContact) => {
         const copyContacts = [...contacts]
@@ -105,7 +112,7 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
                                     <div className="tr-icon"></div>
                                 </tr>
                                 <tr>
-                                    <button className="btn btn-remove" onClick={() => deleteContact(contact.id)}>Remove</button>
+                                    <button className="btn btn-remove" onClick={() => removeHanlder(contact.id)}>Remove</button>
                                 </tr>
 
                             </>
