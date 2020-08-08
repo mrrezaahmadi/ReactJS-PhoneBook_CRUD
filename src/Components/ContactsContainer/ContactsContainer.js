@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 
 
 function ContactsContainer({ contacts, search }) {
-    
+
     let filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(search.toLowerCase()) || contact.phone.toString().includes(search))
 
     return (
@@ -43,7 +43,9 @@ function ContactsContainer({ contacts, search }) {
                     <tbody>
                         {filteredContacts.map(contact => (
                             <tr>
-                                <ContactCard contact={contact} key={contact.id} />
+                                <>
+                                    <ContactCard contact={contact} key={contact.id} />
+                                </>
                             </tr>
                         ))}
                     </tbody>

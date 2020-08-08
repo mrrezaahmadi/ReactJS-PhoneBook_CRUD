@@ -42,7 +42,7 @@ function CreateContact({ addContact }) {
 
     const { id, name, phone, email, address, details } = contact
     return (
-        <div class="CreateContact">
+        <div className="CreateContact">
             <div className="CreateContact-navbar">
                 <div className="navbar-btn">
                     <Link to="/">

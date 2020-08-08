@@ -124,7 +124,6 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
                                         <div className="tr-subtitle">{contact.phone}</div>
                                     </div>
                                     <div className="tr-icon"></div>
-
                                 </tr>
                                 <tr>
                                     <div className="tr-info">
@@ -132,7 +131,6 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
                                         <div className="tr-subtitle">{contact.email}</div>
                                     </div>
                                     <div className="tr-icon"></div>
-
                                 </tr>
                                 <tr>
                                     <div className="tr-info">
@@ -140,7 +138,6 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
                                         <div className="tr-subtitle">{contact.address}</div>
                                     </div>
                                     <div className="tr-icon"></div>
-
                                 </tr>
                                 <tr>
                                     <div className="tr-info">
@@ -148,7 +145,6 @@ function ContactDetails({ contacts, deleteContact, updateContact }) {
                                         <div className="tr-subtitle">{contact.details}</div>
                                     </div>
                                     <div className="tr-icon"></div>
-
                                 </tr>
 
                             </>
